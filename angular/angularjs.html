@@ -7,13 +7,23 @@
 
 <div ng-controller="cntrl1">
 
+	Search: <input ng-model="findThis">
 	<ul>
-	    <li ng-repeat="d in data.products">{{d.product}}: {{d.ammount}}</li>
+	    <li ng-repeat="d in data.products | filter:findThis">{{d.product}}: {{d.ammount}}</li>
 	</ul>
+</div>
+
+<div ng-controller="cntrl2">
+
+	<form>
+	  Product: <input type="text" ng-model="product.name"><br />
+	  Ammount: <input type="text" ng-model="product.ammount"><br />
+	  <input type="submit" ng-click="add_product(product)">
+	</form>
 </div>
 
 </body>
 </html>
 
-<!-- curl -i -H "Content-Type: application/json" -X POST -d '{"product":"BBB", "ammount": 57}' http://localhost:5000/products/ -->
+<!-- curl -i -H "Content-Type: application/json" -X POST -d '{"product":"BBB", "ammount": 57}' http://localhost:5000/products/
 
