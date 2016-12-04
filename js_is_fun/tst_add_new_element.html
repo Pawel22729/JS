@@ -1,0 +1,26 @@
+<html>
+<head>
+
+<script>
+
+function addElement() {
+  var element = document.getElementById('testId');
+  var new_element = document.createElement('p');
+  new_element.id = 'new_element';
+  new_element.style.backgroundColor = 'red';
+  new_element.innerHTML = 'One new element';
+  var body = document.getElementsByTagName('body')[0];
+  body.appendChild(new_element);
+};
+document.addEventListener('DOMContentLoaded', function(){
+  addElement();
+});
+</script>
+
+</head>
+<body>
+
+<p id='testId'>Here is <b>some</b> text</p>
+
+</body>
+</html>
