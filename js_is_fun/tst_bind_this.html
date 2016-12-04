@@ -1,0 +1,32 @@
+<html>
+<head>
+ <meta charset='utf-8'/>
+
+<script>
+
+var klasaA = function() {
+  this.imie = 'Pawel';
+  this.nazwisko = 'Lasak';
+  
+  this.init = function() {
+    this.button = document.createElement('button');
+    this.button.innerHTML = 'test';
+    this.button.addEventListener('click', function(e) {
+      e.target.innerHTML = this.nazwisko;
+    }.bind(this));
+    document.querySelector('body').appendChild(this.button); 
+  }
+  this.init();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var a = klasaA();
+});
+
+</script>
+
+</head>
+<body>
+  
+</body>
+</html>
