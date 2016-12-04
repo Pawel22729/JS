@@ -1,0 +1,41 @@
+<html>
+<head>
+
+<style>
+.mark {
+    background-color: red;
+}
+</style>
+
+<script>
+function markRow(id) {
+  var tab = document.getElementById("tab1");
+  var td = document.getElementsByTagName("td");
+
+  for (var i = 0; i<td.length; i++) {
+    td[i].addEventListener('mouseover', function() {
+      this.parentNode.classList.add('mark');
+    });
+    td[i].addEventListener('mouseout', function() {
+      this.parentNode.classList.remove('mark');
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  markRow('tab1');
+});
+</script>
+
+</head>
+<body>
+
+<table id="tad1">
+  <tr><td>a1</td><td>a2</td></tr>
+  <tr><td>b1</td><td>b2</td></tr>
+  <tr><td>c1</td><td>c2</td></tr>
+  <tr><td>d1</td><td>d2</td></tr>
+</table>
+
+</body>
+</html>
