@@ -1,0 +1,51 @@
+<html>
+<head>
+ <meta charset='utf-8'/>
+</head>
+<body>
+
+Name: <input type="text" id="setCookieName"><br>
+Value: <input type="text" id="setCookieValue"><br>
+Days: <input type="text" id="setCookieDays"><br>
+<button id="setCookie">SET</button><br><br>
+Get cookie name: <input type="text" id="getCookieName"><br>
+<button id="getCookie">GET</button><br>
+<div id="cookieBox"></div>
+
+
+<script>
+
+var setCookie = function(name, val, days){
+  var data = new Date();
+  var time = data.getDate();
+  data.setDate(time+1)
+  document.cookie = name+"="+val+"; expires="+data.toGMTString();
+};
+
+var getCookie = function(name) {
+  var cookies = document.cookie.split('; ');
+  for(var c=0; c<cookies.length; c++) {
+    if (cookies[c].split('=')[0] == name) {
+      document.getElementById('cookieBox').innerHTML = cookies[c];
+      break;
+    };
+  };
+};
+
+document.addEventListener('DOMContentLoaded', function(){
+  document.getElementById('setCookie').addEventListener('click', function(){
+      var name = document.getElementById('setCookieName').value;
+      var value = document.getElementById('setCookieValue').value;
+      var days = document.getElementById('setCookieDays').value;
+      setCookie(name, value, days);
+    });
+  document.getElementById('getCookie').addEventListener('click', function(){
+      var name = document.getElementById('getCookieName').value;
+      getCookie(name);
+    });
+});
+
+</script>
+
+</body>
+</html>
