@@ -1,0 +1,24 @@
+<html>
+<head>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function(){
+  var box = document.getElementById('box');
+  box.addEventListener('change', function(){
+    localStorage.setItem('box', box.checked)
+  });
+  if(localStorage.getItem('box') == 'true'){
+      box.checked = true;
+    };
+});
+
+</script>
+
+</head>
+<body>
+
+<input type="checkbox" id="box"><br>
+
+</body>
+</html>
